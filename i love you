@@ -1,0 +1,33 @@
+#include <iostream> 
+#include <string>
+#include <thread>
+#include <chrono>
+
+// دالة لتأخير الطباعة
+void slowPrint(const std::string& message, int delay = 50) {
+    for (char c : message) {
+        std::cout << c;
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    std::string message = 
+        "عزيزتي بتول،\n"
+        "أريدك أن تعرفي أن وجودك في حياتي يجعل كل شيء أجمل.\n"
+        "كل لحظة أقضيها معك تشبه الحلم الذي لا أريد أن أستيقظ منه.\n"
+        "أنتِ النور الذي يضيء أيامي، والقلب الذي ينبض بحب لا نهاية له.\n"
+        "أحبك أكثر مما تستطيع الكلمات أن تعبر عنه.\n";
+
+    std::cout << "تحضير الرسالة...\n";
+    std::this_thread::sleep_for(std::chrono::seconds(1)); // تأخير لمزيد من التشويق
+
+    slowPrint(message);
+
+    std::cout << "مع أصدق الأمنيات،\n";
+    std::cout <<  "ابو ألما 💖" << std::endl;
+
+    return 0;
+}
